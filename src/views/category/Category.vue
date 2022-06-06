@@ -2,9 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">Our Categories</h3>
+        <h3 class="txtelegantshadow">Our Categories</h3>
         <router-link :to="{ name: 'AddCategory' }">
-          <button class="btn" style="float: right">Add Category</button>
+          <button
+            type="button"
+            class="btn btn-info"
+            style="float: right; height: 60px; font-size: larger"
+          >
+            Add Category
+          </button>
         </router-link>
       </div>
     </div>
@@ -25,7 +31,7 @@ export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Category",
   components: { CategoryBox },
-  props:["categories"],
+  props: ["categories"],
   data() {
     return {
       baseURL: "https://limitless-lake-55070.herokuapp.com",
@@ -33,4 +39,30 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+h3 {
+  font-size: 35px;
+  font: bold 2.5em/1.5 Bebas, sans-serif;
+  color: #5ca17c; /*non-webkit fallback*/
+
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    to bottom,
+    #26bda6,
+    #ff9f65,
+    #ded37e,
+    #26bda6
+  );
+  background-size: auto 250%;
+  transition: background-position 0.5s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 200px;
+  background-position: 0 100%;
+  height: 120px;
+}
+h3:hover {
+  background-position: 0 0;
+  cursor: pointer;
+}
+</style>

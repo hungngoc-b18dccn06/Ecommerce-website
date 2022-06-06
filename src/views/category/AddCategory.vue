@@ -1,38 +1,50 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h3 class="pt-3">Add Category</h3>
-      </div>
+ <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Add Category</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        <div class="form-row">
+                            <div class="name">Name Category</div>
+                            <div class="value">
+                              <input type="text" class="input--style-6" v-model="categoryName" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Description </div>
+                            <div class="value">
+                                <div class="input-group">
+                                  <textarea type="text" class="input--style-6" v-model="description" />
+                                   
+                                </div>
+                            </div>
+                        </div>
+          
+                        <div class="form-row">
+                            <div class="name">Upload Image</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                   <input type="text" class="input--style-6" v-model="imageUrl" />
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit" @click="addCategory">Add Category</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <form>
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" v-model="categoryName" />
-          </div>
-          <div class="form-group">
-            <label>Description</label>
-            <textarea type="text" class="form-control" v-model="description" />
-          </div>
-          <div class="form-group">
-            <label>Image</label>
-            <input type="text" class="form-control" v-model="imageUrl" />
-          </div>
-          <button type="button" class="btn btn-primary" @click="addCategory">
-            Submit
-          </button>
-        </form>
-      </div>
-      <div class="col-3"></div>
-    </div>
-  </div>
 </template>
 <script>
 import axios from "axios";
-import sweetalert from 'sweetalert';
+import sweetalert from "sweetalert";
+
 export default {
   data() {
     return {
@@ -71,4 +83,12 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+@import '../../assets/form.css';
+
+.page-wrapper.bg-dark.p-t-100.p-b-50 {
+    background: #fff !important;
+    padding-bottom: 0px !important;
+    min-height: 0px !important;
+}
+</style>

@@ -16,7 +16,7 @@
         id="edit-category"
         :to="{ name: 'EditCategory', params: { id: category.id } }"
       >
-        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary">Edit Category</button>
       </router-link>
     </div>
   </div>
