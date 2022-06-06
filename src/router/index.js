@@ -2,9 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Home.vue'
 import AddCategoryVue from '../views/category/AddCategory.vue'
 import CategoryVue from '../views/category/Category.vue'
-import AdminVue from '../views/category/Admin.vue'
+import AdminVue from '../views/Admin.vue'
 import ProductVue from '../views/Product/Product.vue'
 import AddProductVue from '../views/Product/AddProduct.vue'
+import EditCategoryVue from '../views/category/EditCategory.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/admin/product/new',
       name: 'AddProduct',
       component: AddProductVue
+    },
+    {
+      path: '/admin/category/:id',
+      name: 'EditCategory',
+      component: EditCategoryVue
     },
 
   ]
