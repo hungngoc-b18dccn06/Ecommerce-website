@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!--    Logo-->
-    <router-link class="navbar-brand" :to="{ name: 'Home' }">
+    <!-- <router-link class="navbar-brand" :to="{ name: 'Home' }">
       <img id="logo" src="../assets/icon.png" />
-    </router-link>
+    </router-link> -->
 
     <!--    Burger Button-->
     <button
@@ -50,7 +50,7 @@
       </form>
 
       <!--      DropDowns-->
-      <ul class="navbar-nav ml-auto">
+      <!-- <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a
             class="nav-link text-light dropdown-toggle"
@@ -132,7 +132,7 @@
             ></router-link>
           </div>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </nav>
 </template>
