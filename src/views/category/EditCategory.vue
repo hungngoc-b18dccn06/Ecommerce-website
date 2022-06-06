@@ -1,50 +1,45 @@
 <template>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h4 class="pt-3">Edit Category</h4>
-      </div>
-    </div>
+  <div class="page-wrapper bg-dark p-t-100 p-b-50">
+        <div class="wrapper wrapper--w900">
+            <div class="card card-6">
+                <div class="card-heading">
+                    <h2 class="title">Edit Category</h2>
+                </div>
+                <div class="card-body">
+                    <form v-if="category">
+                        <div class="form-row">
+                            <div class="name">Name Category</div>
+                            <div class="value">
+                              <input type="text" class="input--style-6" v-model="category.categoryName" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Description </div>
+                            <div class="value">
+                                <div class="input-group">
+                                  <textarea type="text" class="input--style-6" v-model="category.description" />
+                                   
+                                </div>
+                            </div>
+                        </div>
+          
+                        <div class="form-row">
+                            <div class="name">Upload Image</div>
+                            <div class="value">
+                                <div class="input-group js-input-file">
+                                   <input type="text" class="input--style-6" v-model="category.imageUrl" required />
+                                </div>
 
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-md-6 px-5 px-md-0">
-        <form v-if="category">
-          <div class="form-group">
-            <label>Category Name</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="category.categoryName"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>Description</label>
-            <input
-              type="text"
-              class="form-control"
-              v-model="category.description"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label>ImageURL</label>
-            <input
-              type="url"
-              class="form-control"
-              v-model="category.imageUrl"
-              required
-            />
-          </div>
-          <button type="button" class="btn btn-primary" @click="editCategory">
-            Submit
-          </button>
-        </form>
-      </div>
-      <div class="col-3"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn--radius-2 btn--blue-2" type="submit" @click="editCategory">Update Category</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 <script>
 import axios from "axios";
@@ -79,3 +74,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+@import '../../assets/form.css';
+  .card-6 .card-heading {
+      background-color: #007bff !important;
+  }
+.page-wrapper.bg-dark.p-t-100.p-b-50 {
+    background: #fff !important;
+    padding-bottom: 0px !important;
+    min-height: 0px !important;
+}
+</style>
