@@ -6,10 +6,10 @@
         <router-link :to="{ name: 'AddCategory' }">
           <button
             type="button"
-            class="btn btn-info"
+            class="btn btn-primary"
             style="float: right; height: 60px; font-size: larger"
           >
-            Add Category
+            Add Category<i class="fa fa-arrow-circle-right ml-1"></i>
           </button>
         </router-link>
       </div>

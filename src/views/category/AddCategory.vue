@@ -18,7 +18,6 @@
                             <div class="value">
                                 <div class="input-group">
                                   <textarea type="text" class="input--style-6" v-model="description" />
-                                   
                                 </div>
                             </div>
                         </div>
