@@ -16,7 +16,7 @@
                       {{ category.categoryName }}
                     </option>
                   </select>
-                </div>
+                </div>    
               </div>
               <div class="form-row">
                 <div class="name">Name</div>

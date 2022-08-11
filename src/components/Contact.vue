@@ -5,11 +5,7 @@
       <div class="hotline-phone-ring-circle-fill"></div>
       <div class="hotline-phone-ring-img-circle">
         <a href="tel:0898982526" class="pps-btn-img">
-          <img
-            src="https://netweb.vn/img/hotline/icon.png"
-            alt="so dien thoai"
-            width="50"
-          />
+          <img src="https://netweb.vn/img/hotline/icon.png" alt="so dien thoai" width="50" />
         </a>
       </div>
     </div>
@@ -23,23 +19,12 @@
   <div class="float-icon-hotline">
     <ul class="left-icon hotline">
       <li class="hotline_float_icon">
-        <a
-          target="_blank"
-          rel="nofollow"
-          id="messengerButton"
-          href="https://zalo.me/0375577911"
-          ><i class="fa fa-zalo animated infinite tada"></i><span>Zalo</span></a
-        >
+        <a target="_blank" rel="nofollow" id="messengerButton" href="https://zalo.me/0375577911"><i
+            class="fa fa-zalo animated infinite tada"></i><span>Zalo</span></a>
       </li>
       <li class="hotline_float_icon">
-        <a
-          target="_blank"
-          rel="nofollow"
-          id="messengerButton"
-          href="https://www.messenger.com/t/vanhaiweb"
-          ><i class="fa fa-messenger animated infinite tada"></i
-          ><span>Facebook</span></a
-        >
+        <a target="_blank" rel="nofollow" id="messengerButton" href="https://www.messenger.com/t/vanhaiweb"><i
+            class="fa fa-messenger animated infinite tada"></i><span>Facebook</span></a>
       </li>
     </ul>
   </div>
@@ -58,16 +43,20 @@ export default {
 span.text-hotline {
   width: 195px;
 }
+
 nav {
   background-color: green;
 }
+
 .one-edge-shadow {
   box-shadow: 0 8px 2px -5px rgb(246, 245, 245);
 }
+
 .display-8 {
   font-weight: 200;
   font-size: 30px;
 }
+
 .hotline-phone-ring-circle {
   width: 85px;
   height: 85px;
@@ -85,6 +74,7 @@ nav {
   transform-origin: 50% 50%;
   opacity: 0.5;
 }
+
 .hotline-phone-ring-circle-fill {
   width: 55px;
   height: 55px;
@@ -101,6 +91,7 @@ nav {
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
 }
+
 .hotline-phone-ring-img-circle {
   background-color: #e4212a;
   width: 33px;
@@ -123,12 +114,14 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
 .hotline-phone-ring-img-circle .pps-btn-img {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
+
 .hotline-phone-ring-img-circle .pps-btn-img img {
   width: 20px;
   height: 20px;
@@ -157,7 +150,8 @@ nav {
   left: 33px;
   bottom: 37px;
 }
-.hotline-bar > a {
+
+.hotline-bar>a {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
@@ -168,61 +162,76 @@ nav {
   line-height: 38px;
   font-family: Arial;
 }
-.hotline-bar > a:hover,
-.hotline-bar > a:active {
+
+.hotline-bar>a:hover,
+.hotline-bar>a:active {
   color: #fff;
 }
+
 @-webkit-keyframes phonering-alo-circle-anim {
   0% {
     -webkit-transform: rotate(0) scale(0.5) skew(1deg);
     -webkit-opacity: 0.1;
   }
+
   30% {
     -webkit-transform: rotate(0) scale(0.7) skew(1deg);
     -webkit-opacity: 0.5;
   }
+
   100% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
     -webkit-opacity: 0.1;
   }
 }
+
 @-webkit-keyframes phonering-alo-circle-fill-anim {
   0% {
     -webkit-transform: rotate(0) scale(0.7) skew(1deg);
     opacity: 0.6;
   }
+
   50% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
     opacity: 0.6;
   }
+
   100% {
     -webkit-transform: rotate(0) scale(0.7) skew(1deg);
     opacity: 0.6;
   }
 }
+
 @-webkit-keyframes phonering-alo-circle-img-anim {
   0% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
   }
+
   10% {
     -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
   }
+
   20% {
     -webkit-transform: rotate(25deg) scale(1) skew(1deg);
   }
+
   30% {
     -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
   }
+
   40% {
     -webkit-transform: rotate(25deg) scale(1) skew(1deg);
   }
+
   50% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
   }
+
   100% {
     -webkit-transform: rotate(0) scale(1) skew(1deg);
   }
 }
+
 @media (max-width: 768px) {
   .hotline-bar {
     display: none;
@@ -233,6 +242,7 @@ nav {
   width: 20px;
   height: 20px;
 }
+
 img {
   border: none;
 }
@@ -275,6 +285,7 @@ img {
   padding-left: 0;
   margin-bottom: 0;
 }
+
 .float-icon-hotline ul li {
   display: block;
   width: 100%;
@@ -282,19 +293,23 @@ img {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
 .float-icon-hotline ul li a#messengerButton {
   padding: 0px !important;
   background: transparent !important;
   border: 0px !important;
 }
+
 @media only screen and (min-width: 960px) {
   .float-icon-hotline ul li .fa {
     background-size: contain !important;
   }
 }
+
 .float-icon-hotline ul li .fa-phone {
   background-color: #ed1c24;
 }
+
 .float-icon-hotline ul li .fa {
   background-color: #ed1c24;
   display: block;
@@ -312,16 +327,20 @@ img {
   z-index: 2;
   border: 2px solid #fff;
 }
+
 .animated.infinite {
   animation-iteration-count: infinite;
 }
+
 .animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
+
 .tada {
   animation-name: tada;
 }
+
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -330,6 +349,7 @@ img {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .float-icon-hotline ul li span {
   display: inline-block;
   padding: 0;
@@ -361,22 +381,23 @@ ul.left-icon.hotline {
 }
 
 .float-icon-hotline ul li .fa-zalo {
-  background: url(https://netweb.vn/img/hotline/zalo.png) center center
-    no-repeat;
+  background: url(https://netweb.vn/img/hotline/zalo.png) center center no-repeat;
 }
+
 .float-icon-hotline ul li .fa-zalo:hover {
-  background: #ef0303 url(https://netweb.vn/img/hotline/zalo.png) center center
-    no-repeat;
+  background: #ef0303 url(https://netweb.vn/img/hotline/zalo.png) center center no-repeat;
   opacity: 0.5;
 }
+
 .float-icon-hotline ul li .fa-messenger {
   background: url(https://netweb.vn/img/hotline/fb.png) center center no-repeat;
 }
+
 .float-icon-hotline ul li .fa-messenger:hover {
-  background: #168efb url(https://netweb.vn/img/hotline/fb.png) center center
-    no-repeat;
+  background: #168efb url(https://netweb.vn/img/hotline/fb.png) center center no-repeat;
   opacity: 0.5;
 }
+
 .one-edge-shadow {
   background: cornflowerblue;
 }
