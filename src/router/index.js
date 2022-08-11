@@ -6,6 +6,7 @@ import AdminVue from '../views/Admin.vue'
 import ProductVue from '../views/Product/Product.vue'
 import AddProductVue from '../views/Product/AddProduct.vue'
 import EditCategoryVue from '../views/category/EditCategory.vue'
+import EditProduct from '../views/Product/EditProduct.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,9 +18,6 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import('../views/AboutView.vue')
     },
     {
@@ -51,6 +49,11 @@ const router = createRouter({
       path: '/admin/category/:id',
       name: 'EditCategory',
       component: EditCategoryVue
+    },
+    {
+      path: '/admin/product/:id',
+      name: 'EditProduct',
+      component: EditProduct
     },
 
   ]

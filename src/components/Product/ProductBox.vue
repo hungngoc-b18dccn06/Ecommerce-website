@@ -3,16 +3,21 @@
     <div class="embed-responsive embed-responsive-16by9">
       <img
         class="card-img-top embed-responsive-item"
-        :src="product.imageUrl"
-        alt="Card image cap"
+        :src="product.imageURL"
+        alt="Product Image"
       />
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ product.productName }}</h5>
+      <h5 class="card-title">{{ product.name }}</h5>
       <p class="card-text">
-        {{ product.description }}
+        {{ product.description.substring(0, 65) }}...
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <router-link
+        id="edit-product"
+        :to="{ name: 'EditProduct', params: { id: product.id } }"
+      >
+        <button class="btn btn-primary">Edit Product</button>
+      </router-link>
     </div>
   </div>
 </template>
