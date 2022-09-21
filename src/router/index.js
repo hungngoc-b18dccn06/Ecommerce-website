@@ -7,6 +7,9 @@ import ProductVue from '../views/Product/Product.vue'
 import AddProductVue from '../views/Product/AddProduct.vue'
 import EditCategoryVue from '../views/category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
+import ShowDetails from '../views/Product/ShowDetails.vue'
+// import ListProducts from '../views/Category/ListProducts.vue'
+import SumProducts from '../views/Category/SumProducts.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -54,6 +57,21 @@ const router = createRouter({
       path: '/admin/product/:id',
       name: 'EditProduct',
       component: EditProduct
+    },
+    {
+      path : '/product/show/:id',
+      name : 'ShowDetails',
+      component: ShowDetails
+    },
+    // {
+    //   path : '/category/show/:id',
+    //   name : 'ListProducts',
+    //   component: ListProducts
+    // },
+    {
+      path : '/category/show/:id',
+      name : 'SumProducts',
+      component: SumProducts
     },
 
   ]

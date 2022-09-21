@@ -25,7 +25,7 @@
           <CategoryBox :category="categories[index-1]">
           </CategoryBox>
         </div>
-      </div>
+      </div>  
     </div>
 
     <div id="start-shopping" class="container">
@@ -62,10 +62,10 @@ export default {
       }
     },
     mounted(){
+      //category_size
       this.category_size = this.categories.length;
       this.category_size = Math.min(6, this.category_size);
-      console.log('aa', this.category_size )
-
+      //product_size 
       this.product_size = this.products.length;
       this.product_size = Math.min(8, this.product_size);
     }
@@ -97,7 +97,7 @@ export default {
   opacity: 0.8;
 }
 
-h2 {
+h2 {  
   font-family: 'Josefin Sans', sans-serif;
 }
 </style>

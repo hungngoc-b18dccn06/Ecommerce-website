@@ -8,14 +8,17 @@
       />
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ product.name }}</h5>
+      <router-link :to="{ name: 'ShowDetails', params: { id: product.id } }"
+        ><h5 class="card-title">{{ product.name }}</h5></router-link
+      >
+      <p class="card-text">{{ product.price }}$</p>
       <p class="card-text">
-        {{ product.description.substring(0, 65) }}...
+        {{ product.description.substring(0, 100) }}
       </p>
       <router-link
         id="edit-product"
         :to="{ name: 'EditProduct', params: { id: product.id } }"
-      >
+        v-show="$route.name == 'Product'">
         <button class="btn btn-primary">Edit Product</button>
       </router-link>
     </div>

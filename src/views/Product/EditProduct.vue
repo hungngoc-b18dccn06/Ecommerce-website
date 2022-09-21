@@ -10,16 +10,8 @@
             <div class="form-row">
               <div class="name">Category</div>
               <div class="value">
-                <select
-                  class="form-control"
-                  v-model="product.categoryId"
-                  required
-                >
-                  <option
-                    v-for="category of categories"
-                    :key="category.id"
-                    :value="category.id"
-                  >
+                <select class="form-control" v-model="product.categoryId" required>
+                  <option v-for="category of categories" :key="category.id" :value="category.id">
                     {{ category.categoryName }}
                   </option>
                 </select>
@@ -29,12 +21,7 @@
               <div class="name">Name</div>
               <div class="value">
                 <div class="input-group">
-                  <input
-                    type="text"
-                    class="input--style-6"
-                    v-model="product.name"
-                    required
-                  />
+                  <input type="text" class="input--style-6" v-model="product.name" required />
                 </div>
               </div>
             </div>
@@ -43,12 +30,7 @@
               <div class="name">Description</div>
               <div class="value">
                 <div class="input-group js-input-file">
-                  <input
-                    type="text"
-                    class="input--style-6"
-                    v-model="product.description"
-                    required
-                  />
+                  <input type="text" class="input--style-6" v-model="product.description" required />
                 </div>
               </div>
             </div>
@@ -57,12 +39,7 @@
               <div class="name">imageURL</div>
               <div class="value">
                 <div class="input-group js-input-file">
-                  <input
-                    type="text"
-                    class="input--style-6"
-                    v-model="product.imageURL"
-                    required
-                  />
+                  <input type="text" class="input--style-6" v-model="product.imageURL" required />
                 </div>
               </div>
             </div>
@@ -71,23 +48,14 @@
               <div class="name">Price</div>
               <div class="value">
                 <div class="input-group js-input-file">
-                  <input
-                    type="text"
-                    class="input--style-6"
-                    v-model="product.price"
-                    required
-                  />
+                  <input type="text" class="input--style-6" v-model="product.price" required />
                 </div>
               </div>
             </div>
           </form>
         </div>
         <div class="card-footer">
-          <button
-            class="btn btn--radius-2 btn--blue-2"
-            type="submit"
-            @click="editProduct"
-          >
+          <button class="btn btn--radius-2 btn--blue-2" type="submit" @click="editProduct">
             Update Category
           </button>
         </div>
