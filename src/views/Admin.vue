@@ -10,9 +10,6 @@
         Admin Categories
       </button>
     </router-link>
-    <!-- <router-link :to="{name : 'Gallery'}">
-        <button type="button" class="btn btn-primary btn-lg">Admin Gallery</button>
-      </router-link> -->
   </div>
 </template>
 

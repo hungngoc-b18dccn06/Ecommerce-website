@@ -8,13 +8,16 @@
       />
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ category.categoryName }}</h5>
+      <router-link :to="{ name: 'SumProducts', params: { id: category.id } }"
+        ><h5 class="card-title">{{ category.categoryName }}</h5></router-link
+      >
       <p class="card-text">
         {{ category.description }}
       </p>
       <router-link
         id="edit-category"
         :to="{ name: 'EditCategory', params: { id: category.id } }"
+        v-show="$route.name == 'Category'"
       >
         <button class="btn btn-primary">Edit Category</button>
       </router-link>
@@ -25,7 +28,14 @@
 export default {
   name: "CategoryBox",
   props: ["category"],
-  methods: {},
+  methods: {
+    SumProducts() {
+      this.$router.push({
+        name: "SumProducts",
+        params: { id: this.category.id },
+      });
+    },
+  },
 };
 </script>
 
