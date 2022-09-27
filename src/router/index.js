@@ -9,6 +9,8 @@ import EditCategoryVue from '../views/category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
 // import ListProducts from '../views/Category/ListProducts.vue'
+import SignIn from '../views/SignIn.vue'
+import SignUp from '../views/SignUp.vue'
 import SumProducts from '../views/Category/SumProducts.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -72,6 +74,16 @@ const router = createRouter({
       path : '/category/show/:id',
       name : 'SumProducts',
       component: SumProducts
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: SignUp
+    },
+    {
+      path: '/signin',
+      name: 'Signin',
+      component: SignIn
     },
 
   ]
