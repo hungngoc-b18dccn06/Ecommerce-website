@@ -1,14 +1,5 @@
 <template>
   <div class="container">
-    <!--    Logo Div-->
-    <!-- <div class="row">
-      <div class="col-12 text-center pt-3">
-        <router-link :to="{ name: 'home' }">
-          <img id="logo" src="../assets/logo_real.png" />
-        </router-link>
-      </div>
-    </div> -->
-
     <div class="row">
       <div class="col-12 justify-content-center d-flex flex-row pt-5">
         <div id="signin-div" class="flex-item border">
@@ -37,6 +28,7 @@
           <p class="text-center">
             <router-link :to="{ name: 'Signup' }" class="btn btn-dark text-center mx-auto px-5 py-1 mb-2">Create Your HưngSShopp's Account</router-link>
           </p>
+          
         </div>
       </div>
     </div>
@@ -44,8 +36,59 @@
 </template>
 
 <script>
-export default {};
-</script>
+  import swal from 'sweetalert';
+  import axios from 'axios';
+  export default {
+    // eslint-disable-next-line vue/multi-word-component-names
+    name: "Signin",
+    props: ["baseURL"],
+    data() {
+      return {
+        email: null,
+        password: null,
+        loading: null,
+      };
+    },
+    methods: {
+      async signin(e) {
+        e.preventDefault();
+        this.loading = true;
+        const user = {
+          email: this.email,
+          password: this.password,
+        };
+        await axios
+          .post(`${this.baseURL}user/signIn`, user)
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("email",this.email);
+            console.log(localStorage)
+            this.$emit("fetchData");
+            this.$router.push({ name: "home" });
+            swal({
+              text: "Login successful !",
+              icon: "success",
+              closeOnClickOutside: false,
+            });
+          })
+          .catch((err) => {
+            swal({
+              text: "Unable to Log you in!",
+              icon: "error",
+              closeOnClickOutside: false,
+            });
+            console.log(err);
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      },
+    },
+    mounted() {
+      this.loading = false;
+    },
+  };
+  </script>
 
 <style scoped>
 .btn-dark {
@@ -83,4 +126,5 @@ h2.pt-4.pl-4{
   font-family: cursive;
   padding-bottom: 20px;
 }
+
 </style>

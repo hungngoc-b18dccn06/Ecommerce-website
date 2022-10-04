@@ -6,10 +6,7 @@
     </router-link>
 
     <!--    Burger Button-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!--      Search Bar-->
@@ -28,98 +25,19 @@
           </div>
         </div>
       </form>
-      <ul class="navbar-nav ml-auto"> 
-        <li class="nav-item dropdown">
-           <router-link class="nav-link text-light" style="color:#fff;padding-bottom: 0" :to="{ name: 'Admin' }"
-              >Admin</router-link>
-        </li>
-      </ul>
-
-      <!--      DropDowns-->
-      <!-- <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link text-light dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Browse
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link class="dropdown-item" :to="{ name: 'Home' }"
-              >Home</router-link
-            >
-            <router-link class="dropdown-item" :to="{ name: 'Product' }"
-              >Product</router-link
-            >
-            <router-link class="dropdown-item" :to="{ name: 'Category' }"
-              >Category</router-link
-            >
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link text-light dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Accounts
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <router-link
-              class="dropdown-item"
-              v-if="!token"
-              :to="{ name: 'Signin' }"
-              >Wishlist</router-link
-            >
-            <router-link class="dropdown-item" v-else :to="{ name: 'Wishlist' }"
-              >Wishlist</router-link
-            >
-            <router-link class="dropdown-item" :to="{ name: 'Admin' }"
-              >Admin</router-link
-            >
-            <router-link
-              class="dropdown-item"
-              v-if="!token"
-              :to="{ name: 'Signin' }"
-              >Log In</router-link
-            >
-            <router-link
-              class="dropdown-item"
-              v-if="!token"
-              :to="{ name: 'Signup' }"
-              >Sign Up</router-link
-            >
-            <a class="dropdown-item" v-if="token" href="#" @click="signout"
-              >Sign Out</a
-            >
-          </div>
-        </li>
-
-        <li class="nav-item">
-          <router-link class="nav-link text-light" :to="{ name: 'Order' }"
-            >Orders</router-link
-          >
-        </li>
-        <li class="nav-item">
-          <div id="cart">
-            <span id="nav-cart-count">{{ cartCount }}</span>
-            <router-link class="text-light" :to="{ name: 'Cart' }"
-              ><i class="fa fa-shopping-cart" style="font-size:36px"></i
-            ></router-link>
-          </div>
-        </li>
-      </ul> -->
     </div>
+
+    <div class="dropdown mr-3">
+      <button class="dropbtn account">AC</button>
+      <div class="dropdown-content">
+        <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 0; display:flex"
+          :to="{ name: 'Admin' }"><img class="personal" src="../assets/login.png" />
+          <p class="mt-1"> Admin</p>
+        </router-link>
+        <a href="#" @click="logout" style="padding-left: 0px"><i class="fa fa-sign-in"></i> SignOut</a>
+      </div>
+    </div>
+
   </nav>
 </template>
 
@@ -131,12 +49,15 @@ export default {
   props: ["cartCount"],
   data() {
     return {
+      isAdmin: false,
       token: null,
+      EmailAdmin: 'hungngoc732000@gmail.com',
     };
   },
   methods: {
     signout() {
       localStorage.removeItem("token");
+
       this.token = null;
       this.$emit("resetCartCount");
       this.$router.push({ name: "Home" });
@@ -146,17 +67,23 @@ export default {
         closeOnClickOutside: false,
       });
     },
+    logout(){
+      console.log('sâs')
+    }
   },
   mounted() {
     this.token = localStorage.getItem("token");
+    this.EmailAdmin = localStorage.getItem("email");
+    console.log(localStorage)
   },
 };
 </script>
 
-  <style scoped>
-  .bg-dark {
-    background-color: #222224!important;
+<style scoped>
+.bg-dark {
+  background-color: #222224 !important;
 }
+
 #logo {
   width: 80px;
   margin-left: 20px;
@@ -174,21 +101,58 @@ export default {
   border-bottom-right-radius: 2px;
 }
 
-#nav-cart-count {
-  background-color: red;
+.dropbtn {
+  background-color: #04AA6D;
   color: white;
-  border-radius: 50%;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 15px;
-  height: 15px;
-  font-size: 15px;
-  margin-left: 10px;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
 }
 
-#cart {
-  position: relative;
+.dropdown {
+
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 130px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+button.dropbtn.account {
+  width: 45px;
+  height: 45px;
+  padding: 0px;
+  border-radius: 50%;
+}
+
+img.personal {
+  width: 30%;
+  height: 30%;
+  margin-right: 5px;
 }
 </style>
