@@ -1,13 +1,8 @@
 <template>
   <Navbar />
   <div style="min-height: 60vh">
-    <router-view
-      v-if="products && categories"
-      :baseURL="baseURL"
-      :products="products"
-      :categories="categories"
-      @fetchData="fetchData"
-    >
+    <router-view v-if="products && categories" :baseURL="baseURL" :products="products" :categories="categories"
+      @fetchData="fetchData">
     </router-view>
   </div>
   <Contact />
@@ -25,6 +20,7 @@ export default {
       baseURL: "https://limitless-lake-55070.herokuapp.com/",
       products: null,
       categories: null,
+      token: null,
     };
   },
   methods: {
@@ -33,7 +29,6 @@ export default {
         .get(this.baseURL + "category/")
         .then((res) => {
           this.categories = res.data.slice(0, 15);
-          
         })
         .catch((err) => console.log("err", err));
       //call api product
@@ -44,10 +39,14 @@ export default {
           console.log(res.data);
         })
         .catch((err) => console.log("err", err));
+        
     },
   },
   mounted() {
+    this.token = localStorage.getItem('token');
     this.fetchData();
+    console.log(this.token)
+    
   },
 };
 </script>
@@ -59,13 +58,16 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 #nav {
   padding: 30px;
 }
+
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
+
 #nav a.router-link-exact-active {
   color: #42b983;
 }
