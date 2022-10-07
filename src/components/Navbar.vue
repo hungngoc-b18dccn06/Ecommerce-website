@@ -26,18 +26,37 @@
         </div>
       </form>
     </div>
-
-    <div class="dropdown mr-3">
-      <button class="dropbtn account">AC</button>
-      <div class="dropdown-content">
-        <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 0; display:flex"
-          :to="{ name: 'Admin' }"><img class="personal" src="../assets/login.png" />
-          <p class="mt-1"> Admin</p>
-        </router-link>
-        <a href="#" @click="logout" style="padding-left: 0px"><i class="fa fa-sign-in"></i> SignOut</a>
+    <div class="navbar-control mr-5">
+      <div class="dropdown mr-3 ml-3" style="display:flex" v-if="token">
+        <button class="dropbtn account">AC</button>
+        <div class="dropdown-content">
+          <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 5px; display:flex"
+            :to="{ name: 'Admin' }"><i class="fa fa-user" style="color:black;padding-top: 3px;padding-right: 10px;"></i> Admin
+          </router-link>
+          <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 5px; display:flex"
+            :to="{ name: 'Wishlist' }"><i class="fa fa-heart" style="color:red;padding-top: 3px;padding-right: 5px;"></i> WishList
+          </router-link>
+          <a href="#" @click="logout" style="padding-left: 0px"><i class="fa fa-sign-out"></i> SignOut</a>
+          
+        </div>  
+        <!-- <div class="shopping-cart">
+          <a href="#" style="padding-left: 0px"><i class="fa fa-shopping-cart"></i> Sign </a>
+        </div> -->
+      </div>
+      <div class="home-control" v-if="!token">
+        <ul class="menu">
+          <li><router-link class="nav-link text-light mr-3" style="color:#fff !important;padding-bottom: 0"
+            :to="{ name: 'home' }"><i class="fa fa-fw fa-home"></i> Home
+          </router-link>
+          </li>
+          <li>
+            <router-link class="nav-link text-light" style="color:#fff !important;padding-bottom: 0"
+            :to="{ name: 'Signin' }"><i class="fa fa-fw fa-user"></i> Login
+          </router-link>
+          </li>
+        </ul>
       </div>
     </div>
-
   </nav>
 </template>
 
@@ -49,31 +68,40 @@ export default {
   props: ["cartCount"],
   data() {
     return {
+      nameUser: '',
       isAdmin: false,
       token: null,
       EmailAdmin: 'hungngoc732000@gmail.com',
     };
   },
   methods: {
-    signout() {
+    // signout() {
+    //   localStorage.removeItem("token");
+    //   this.token = null;
+    //   this.$emit("resetCartCount");
+    //   this.$router.push({ name: "Home" });
+    //   swal({
+    //     text: "Logged you out. Visit Again",
+    //     icon: "success",
+    //     closeOnClickOutside: false,
+    //   });
+    // },
+    logout() {
       localStorage.removeItem("token");
-
       this.token = null;
       this.$emit("resetCartCount");
-      this.$router.push({ name: "Home" });
+      this.$router.push({ name: "home" });
       swal({
         text: "Logged you out. Visit Again",
         icon: "success",
         closeOnClickOutside: false,
       });
-    },
-    logout(){
-      console.log('sâs')
     }
   },
   mounted() {
     this.token = localStorage.getItem("token");
     this.EmailAdmin = localStorage.getItem("email");
+    this.nameUser = localStorage.getItem('account_name')
     console.log(localStorage)
   },
 };
@@ -118,10 +146,11 @@ export default {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 130px;
+  width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  right: 0;
+  right: 0 ;
+  margin-top: 45px;
 }
 
 .dropdown-content a {
@@ -154,5 +183,18 @@ img.personal {
   width: 30%;
   height: 30%;
   margin-right: 5px;
+}
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    overflow: hidden;
+    display: flex;
+    font-size: 19px;
+    margin-left: 15px;
+}
+ul.menu li{
+  width: 100px;
 }
 </style>

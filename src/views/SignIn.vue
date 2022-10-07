@@ -62,18 +62,18 @@
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("email",this.email);
-            console.log(localStorage)
+            console.log(localStorage) 
             this.$emit("fetchData");
             this.$router.push({ name: "home" });
             swal({
               text: "Login successful !",
               icon: "success",
               closeOnClickOutside: false,
-            });
+            }); 
           })
           .catch((err) => {
             swal({
-              text: "Unable to Log you in!",
+              text: "Login fails - Please check your Email and Password",
               icon: "error",
               closeOnClickOutside: false,
             });

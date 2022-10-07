@@ -57,11 +57,13 @@ export default {
   props: ["products", "baseURL", "categories"],
   data(){
       return{
+        token: null,
         category_size:0,  
         product_size:0
       }
     },
     mounted(){
+      this.token = localStorage.getItem("token");
       //category_size
       this.category_size = this.categories.length;
       this.category_size = Math.min(6, this.category_size);

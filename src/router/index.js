@@ -8,6 +8,7 @@ import AddProductVue from '../views/Product/AddProduct.vue'
 import EditCategoryVue from '../views/category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
+import WishList from '../views/WishList.vue'
 // import ListProducts from '../views/Category/ListProducts.vue'
 import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
@@ -65,11 +66,6 @@ const router = createRouter({
       name : 'ShowDetails',
       component: ShowDetails
     },
-    // {
-    //   path : '/category/show/:id',
-    //   name : 'ListProducts',
-    //   component: ListProducts
-    // },
     {
       path : '/category/show/:id',
       name : 'SumProducts',
@@ -84,6 +80,11 @@ const router = createRouter({
       path: '/signin',
       name: 'Signin',
       component: SignIn
+    },
+    {
+      path: '/wishlist',
+      name: 'Wishlist',
+      component: WishList
     },
 
   ]
