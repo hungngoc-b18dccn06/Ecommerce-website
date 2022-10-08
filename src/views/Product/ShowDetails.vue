@@ -22,11 +22,11 @@
                     {{ product.description }}
                 </p>
                 <div class="d-flex flex-row justify-content-between">
-                    <div class="input-group col-md-3 col-4 p-0" style="width: 4 0px">
+                    <div class="input-group col-md-3 col-4 p-0">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Quantity</span>
                         </div>
-                        <input class="form-control" type="number" style="width: 20px; padding-right:5px" />
+                        <input class="form-control" type="number" v-bind:value="quantity" />
                     </div>
 
                     <div class="input-group col-md-3 col-4 p-0">
@@ -77,8 +77,9 @@ export default {
             name: null,
             imageURL: null,
             description: null,
-            itemToken : null,
+            itemToken: null,
             checkWishtListItems: false,
+            quantity: 1
 
         };
     },
@@ -100,7 +101,7 @@ export default {
                                 icon: "success",
                                 closeOnClickOutside: false,
                             });
-                        }else{
+                        } else {
                             swal({
                                 text: "Đã add rồi k cho add lại đâu!",
                                 icon: "error",
@@ -113,17 +114,17 @@ export default {
                     }
                 );
         },
-         fetchData(){
+        fetchData() {
             axios.get(`${this.baseURL}wishlist/${localStorage.getItem("token")}`)
                 .then(
                     (response) => {
-                       this.idListWishItem = response.data.find(e => e.id).id;
-                       if(this.idListWishItem == this.id){
-                        this.checkWishtListItems = true;
-                       }else{
-                        this.checkWishtListItems = false;
-                       }
-                       console.log(this.idListWishItem ,Number(this.id) )
+                        this.idListWishItem = response.data.find(e => e.id).id;
+                        if (this.idListWishItem == this.id) {
+                            this.checkWishtListItems = true;
+                        } else {
+                            this.checkWishtListItems = false;
+                        }
+                        console.log(this.idListWishItem, Number(this.id))
                     },
                     (error) => {
                         console.log(error);
@@ -148,8 +149,16 @@ export default {
     display: flex;
     justify-content: center;
 }
+
 i.fa.fa-heart {
     padding: 0px 0px 0px 150px;
     font-size: 30px;
-}   
+}
+
+span#basic-addon1 {
+    padding: 2px;
+    font-size: 12px;
+    width: 65px;
+    font-weight: 900;
+}
 </style>
