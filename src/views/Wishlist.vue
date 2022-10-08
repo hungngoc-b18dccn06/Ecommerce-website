@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-</template>
+</template>   
 
 <script>
 import ProductBox from "../components/Product/ProductBox.vue";
@@ -38,7 +38,7 @@ export default {
         .get(`${this.baseURL}wishlist/${localStorage.getItem("token")}`)
         .then(
           (response) => {
-            this.products = response.data;
+            this.products = response.data.slice(0, 10);
             this.test = response.data.filter(e => e.id);
             console.log(this.test);
           },
