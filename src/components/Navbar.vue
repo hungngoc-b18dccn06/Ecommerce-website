@@ -26,35 +26,40 @@
         </div>
       </form>
     </div>
-    <div class="navbar-control mr-5">
+    <div class="navbar-control mr-5" style="display:flex">
       <div class="dropdown mr-3 ml-3" style="display:flex" v-if="token">
         <button class="dropbtn account">AC</button>
         <div class="dropdown-content">
           <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 5px; display:flex"
-            :to="{ name: 'Admin' }"><i class="fa fa-user" style="color:black;padding-top: 3px;padding-right: 10px;"></i> Admin
+            :to="{ name: 'Admin' }"><i class="fa fa-user" style="color:black;padding-top: 3px;padding-right: 10px;"></i>
+            Admin
           </router-link>
           <router-link class="nav-link text-light" style="color:black !important;padding-bottom: 5px; display:flex"
-            :to="{ name: 'Wishlist' }"><i class="fa fa-heart" style="color:red;padding-top: 3px;padding-right: 5px;"></i> WishList
+            :to="{ name: 'Wishlist' }"><i class="fa fa-heart"
+              style="color:red;padding-top: 3px;padding-right: 5px;"></i> WishList
           </router-link>
           <a href="#" @click="logout" style="padding-left: 0px"><i class="fa fa-sign-out"></i> SignOut</a>
-          
-        </div>  
-        <!-- <div class="shopping-cart">
-          <a href="#" style="padding-left: 0px"><i class="fa fa-shopping-cart"></i> Sign </a>
-        </div> -->
+        </div>
       </div>
+      
       <div class="home-control" v-if="!token">
         <ul class="menu">
-          <li><router-link class="nav-link text-light mr-3" style="color:#fff !important;padding-bottom: 0"
-            :to="{ name: 'home' }"><i class="fa fa-fw fa-home"></i> Home
-          </router-link>
+          <li>
+            <router-link class="nav-link text-light mr-3" style="color:#fff !important;padding-bottom: 0"
+              :to="{ name: 'home' }"><i class="fa fa-fw fa-home"></i> Home
+            </router-link>
           </li>
           <li>
             <router-link class="nav-link text-light" style="color:#fff !important;padding-bottom: 0"
-            :to="{ name: 'Signin' }"><i class="fa fa-fw fa-user"></i> Login
-          </router-link>
+              :to="{ name: 'Signin' }"><i class="fa fa-fw fa-user"></i> Login
+            </router-link>
           </li>
         </ul>
+      </div>
+      <div class="shopping-cart" style="">
+        <router-link class="nav-link text-light" style="padding-left: 5px; color:#fff"
+              :to="{ name: 'Cart' }"><i class="fa fa-shopping-cart"></i>
+            </router-link>
       </div>
     </div>
   </nav>
@@ -149,7 +154,7 @@ export default {
   width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  right: 0 ;
+  right: 0;
   margin-top: 45px;
 }
 
@@ -184,17 +189,28 @@ img.personal {
   height: 30%;
   margin-right: 5px;
 }
+
 ul.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    overflow: hidden;
-    display: flex;
-    font-size: 19px;
-    margin-left: 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  overflow: hidden;
+  display: flex;
+  font-size: 19px;
+  margin-left: 15px;
 }
-ul.menu li{
+
+ul.menu li {
   width: 100px;
+}
+
+i.fa.fa-shopping-cart {
+  font-size: 28px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-top: 8px;
+  position:relative;
 }
 </style>
