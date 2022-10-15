@@ -9,6 +9,7 @@ import EditCategoryVue from '../views/category/EditCategory.vue'
 import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
 import WishList from '../views/WishList.vue'
+import Cart from '../views/Cart/Cart.vue'
 // import ListProducts from '../views/Category/ListProducts.vue'
 import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
@@ -85,6 +86,11 @@ const router = createRouter({
       path: '/wishlist',
       name: 'Wishlist',
       component: WishList
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     },
 
   ]
