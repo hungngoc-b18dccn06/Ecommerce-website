@@ -51,15 +51,15 @@
           </ul>
         </div>
 
-        <button
-          id="show-cart-button"
-          type="button"
-          class="btn btn-success mr-3"
-          @click="addToWishList(this.id)"
-        >
-          Add to WishList
-          <i class="far fa-heart"></i>
-        </button>
+          <button
+            id="show-cart-button"
+            type="button"
+            class="btn btn-success mr-3"
+            @click="addToWishList(this.id)"
+          >
+            Add to WishList
+            <i class="far fa-heart"></i>
+          </button>
         <button
           id="show-cart-button"
           type="button"

@@ -56,9 +56,9 @@
           </li>
         </ul>
       </div>
-      <div class="shopping-cart" style="">
+      <div class="shopping-cart" style="position:relative" v-if="token">
         <router-link class="nav-link text-light" style="padding-left: 5px; color:#fff"
-              :to="{ name: 'Cart' }"><i class="fa fa-shopping-cart"></i>
+              :to="{ name: 'Cart' }"><i class="fa fa-shopping-cart" style=""><span class="total">{{cartCount}}</span></i>
             </router-link>
       </div>
     </div>
@@ -77,20 +77,10 @@ export default {
       isAdmin: false,
       token: null,
       EmailAdmin: 'hungngoc732000@gmail.com',
+      
     };
   },
   methods: {
-    // signout() {
-    //   localStorage.removeItem("token");
-    //   this.token = null;
-    //   this.$emit("resetCartCount");
-    //   this.$router.push({ name: "Home" });
-    //   swal({
-    //     text: "Logged you out. Visit Again",
-    //     icon: "success",
-    //     closeOnClickOutside: false,
-    //   });
-    // },
     logout() {
       localStorage.removeItem("token");
       this.token = null;
@@ -212,5 +202,17 @@ i.fa.fa-shopping-cart {
   margin: auto;
   padding-top: 8px;
   position:relative;
+}
+.total{
+  margin: -12px;
+    position: absolute;
+    font-size: 11px;
+    background: red;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    padding-top: 5px;
+    border-radius: 50%;
+    font-weight: 800;
 }
 </style>

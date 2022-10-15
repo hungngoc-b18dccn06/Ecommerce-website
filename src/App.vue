@@ -1,5 +1,9 @@
 <template>
-  <Navbar />
+  <Navbar
+    :cartCount="cartCount"
+    @resetCartCount="resetCartCount"
+    v-if="!['Signup', 'Signin'].includes($route.name)"
+  />
   <div style="min-height: 60vh">
     <router-view v-if="products && categories" :baseURL="baseURL" :products="products" :categories="categories"
       @fetchData="fetchData">
@@ -21,6 +25,8 @@ export default {
       products: null,
       categories: null,
       token: null,
+      key: 0,
+      cartCount: 0,
     };
   },
   methods: {
@@ -38,8 +44,23 @@ export default {
           this.products = res.data.slice(0, 5);
           console.log(res.data);
         })
-        .catch((err) => console.log("err", err));
-        
+        .catch((err) => console.log("err", err)); 
+        if (this.token) {
+        await axios.get(`${this.baseURL}cart/?token=${this.token}`).then(
+          (response) => {
+            if (response.status == 200) {
+              // update cart
+              this.cartCount = Object.keys(response.data.cartItems).length;
+            }
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    },
+    resetCartCount() {
+      this.cartCount = 0;
     },
   },
   mounted() {

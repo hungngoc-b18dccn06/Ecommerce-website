@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">Shopping cart</h3>
+        <h3 class="pt-3">Shopping Cart</h3>
       </div>
     </div>
     <!--    loop over all the cart items and display one by one-->
@@ -18,11 +18,26 @@
       <div class="col-md-5 px-3">
         <div class="card-block px-3">
           <h6 class="card-title"><router-link :to="{ name: 'ShowDetails', params: { id : cartItem.product.id } }">{{cartItem.product.name}} </router-link></h6>
-          <p id="item-price" class="mb-0 font-weight-bold">$ {{cartItem.product.price}} per unit</p>
+          <div class="detail-product" style="display:flex">
+            <div class="price-and-total">
+              <p id="item-price" class="mb-0 font-weight-bold">$ {{cartItem.product.price}}per unit</p>
           <p id="item-quantity" class="mb-0">
             Quantity :
-            <input size="1" class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0" v-model="cartItem.quantity" /></p>
+            <input size="1" class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0" v-model="cartItem.quantity" /></p><br/>
           <p id="item-total-price" class="mb-0">Total : <span class="font-weight-bold"> $ {{cartItem.product.price*cartItem.quantity}}</span></p>
+    
+            </div>
+            <div class="remove-product" style="margin:auto">
+              <button
+          id="show-cart-button"
+          type="button"
+          class="btn btn-danger "
+          @click="deleteItem(cartItem.id)"
+        >Remove <i class="fa fa-trash ml-1"></i>
+        </button>
+            </div>
+          </div>
+          
         </div>
       </div>
       <div class="col-2"></div>
@@ -71,7 +86,17 @@ export default {
       (error)=>{
         console.log(error)
       });
-    }
+    },
+    deleteItem(itemId) {
+      axios
+        .delete(`${this.baseURL}cart/delete/${itemId}/?token=${this.token}`)
+        .then((res) => {
+          if (res.status == 200) {
+            this.$router.go(0);
+          }
+        })
+        .catch((err) => console.log("err", err));
+    },
   },
 
   mounted() {
@@ -102,7 +127,7 @@ h4, h5 {
 }
 
 #item-total-price {
-  float: right;
+  float: left;
 }
 
 .confirm {
