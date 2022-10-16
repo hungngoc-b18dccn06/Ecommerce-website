@@ -47,13 +47,24 @@
     <!-- display total price -->
     <div class="total-cost pt-2 text-right">
       <h5>Total : $ {{totalcost}}</h5>
-      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" >Confirm Order</button>
+      <button
+        type="button"
+        class="btn btn-primary confirm"
+      >
+      <router-link class="nav-link text-light" style="color:#fff !important;padding-bottom: 0"
+              :to="{ name: 'CheckOut' }"><i class="fa fa-fw fa-user"></i> Confirm Order
+            </router-link>
+      </button>
+      
     </div>
+    
   </div>
 </template>
 
 <script>
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
+import Stripe from 'stripe';
 export default {
   data() {
     return {
@@ -96,9 +107,16 @@ export default {
           }
         })
         .catch((err) => console.log("err", err));
+        console.log('dsd')
     },
   },
-
+  checkout() {
+      this.$router.push({ name: 'CheckOut' });
+      console.log('dsd')
+    },
+    check(){
+      console.log('sấ')
+    },
   mounted() {
     this.token = localStorage.getItem("token");
     this.listCartItems();

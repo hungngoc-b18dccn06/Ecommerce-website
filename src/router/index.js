@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Home.vue'
 import AddCategoryVue from '../views/category/AddCategory.vue'
@@ -10,10 +11,13 @@ import EditProduct from '../views/Product/EditProduct.vue'
 import ShowDetails from '../views/Product/ShowDetails.vue'
 import WishList from '../views/WishList.vue'
 import Cart from '../views/Cart/Cart.vue'
+import Orders from '../views/Orders/Orders.vue'
 // import ListProducts from '../views/Category/ListProducts.vue'
 import SignIn from '../views/SignIn.vue'
 import SignUp from '../views/SignUp.vue'
 import SumProducts from '../views/Category/SumProducts.vue'
+import CheckOut from '../views/CheckOut/CheckOut.vue'
+import OrderDetail from "../views/Orders/OrderDetail.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -92,6 +96,21 @@ const router = createRouter({
       name: 'Cart',
       component: Cart
     },
+    {
+      path: '/checkout',
+      name: 'CheckOut',
+      component: CheckOut
+    },
+    {
+      path: '/orders',
+      name: 'Order',
+      component: Orders
+    },
+    {
+      path:'/order/:id',
+      name:'OrderDetails',
+      component: OrderDetail
+    }
 
   ]
 })

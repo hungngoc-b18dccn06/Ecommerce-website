@@ -148,6 +148,21 @@ export default {
           }
         );
     },
+    listCartItems() {
+      axios.get(`${this.baseURL}cart/?token=${this.token}`).then(
+        (response) => {
+          if (response.status == 200) {
+            const result = response.data;
+            // store cartitems and total price in two variables
+            this.cartItems = result.cartItems;
+            this.totalcost = result.totalCost;
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
     AddToCart(productId) {
       if (!this.token) {
         swal({
